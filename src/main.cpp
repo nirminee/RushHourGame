@@ -3,7 +3,7 @@
 #include "Solver.hpp"
 #include <iostream>
 #include <sstream>
-#include <filesystem> 
+#include <filesystem>
 
 const int cellSize = 100;
 char vehiculeActif = 'X';
@@ -31,6 +31,7 @@ void launchManualMode(Grille& g, sf::Texture& carTexture) {
             if (event.type == sf::Event::Closed)
                 window.close();
 
+            // Sélection clavier 
             if (event.type == sf::Event::KeyPressed && !victoire) {
                 if (event.key.code >= sf::Keyboard::A && event.key.code <= sf::Keyboard::Z) {
                     vehiculeActif = static_cast<char>('A' + (event.key.code - sf::Keyboard::A));
@@ -42,6 +43,38 @@ void launchManualMode(Grille& g, sf::Texture& carTexture) {
                 if (event.key.code == sf::Keyboard::Up) g.deplacerVehicule(vehiculeActif, "haut");
                 if (event.key.code == sf::Keyboard::Down) g.deplacerVehicule(vehiculeActif, "bas");
             }
+
+            // Sélection souris
+            if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left && !victoire) {
+                sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+
+                const auto& vehicules = g.getVehicules();
+                const auto& colorMap = g.getColorMap();
+                for (const auto& v : vehicules) {
+                    sf::Sprite carSprite;
+                    carSprite.setTexture(carTexture);
+
+                    float scaleX, scaleY;
+                    if (v.isHorizontal()) {
+                        scaleX = v.getLongueur() * (float)cellSize / carTexture.getSize().x;
+                        scaleY = (float)cellSize / carTexture.getSize().y;
+                        carSprite.setScale(scaleX, scaleY);
+                        carSprite.setPosition(v.getX() * cellSize, v.getY() * cellSize);
+                    } else {
+                        scaleX = v.getLongueur() * (float)cellSize / carTexture.getSize().x;
+                        scaleY = (float)cellSize / carTexture.getSize().y;
+                        carSprite.setScale(scaleX, scaleY);
+                        carSprite.setRotation(90.f);
+                        carSprite.setOrigin(0, 0);
+                        carSprite.setPosition((v.getX() + 1) * cellSize, v.getY() * cellSize);
+                    }
+
+                    if (carSprite.getGlobalBounds().contains(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y))) {
+                        vehiculeActif = v.getId(); // On sélectionne le véhicule cliqué
+                        break;
+                    }
+                }
+            }
         }
 
         window.clear(sf::Color::White);
@@ -51,11 +84,10 @@ void launchManualMode(Grille& g, sf::Texture& carTexture) {
             for (int x = 0; x < g.getLargeur(); ++x) {
                 sf::RectangleShape cell(sf::Vector2f(cellSize - 2, cellSize - 2));
                 cell.setPosition(x * cellSize, y * cellSize);
-                // Check if this cell is the sortie
                 if (x == g.getSortieX() && y == g.getSortieY()) {
-                    cell.setFillColor(sf::Color(230, 230, 230)); // Keep the default fill color
-                    cell.setOutlineThickness(3);                // Make the border thicker
-                    cell.setOutlineColor(sf::Color::Red);       // Set the border color to red
+                    cell.setFillColor(sf::Color(230, 230, 230));
+                    cell.setOutlineThickness(3);
+                    cell.setOutlineColor(sf::Color::Red);
                 } else {
                     cell.setFillColor(sf::Color(230, 230, 230));
                     cell.setOutlineThickness(1);
@@ -78,13 +110,11 @@ void launchManualMode(Grille& g, sf::Texture& carTexture) {
                 carSprite.setScale(scaleX, scaleY);
                 carSprite.setPosition(v.getX() * cellSize, v.getY() * cellSize);
             } else {
-                // For vertical: stretch horizontally, then rotate
                 scaleX = v.getLongueur() * (float)cellSize / carTexture.getSize().x;
                 scaleY = (float)cellSize / carTexture.getSize().y;
                 carSprite.setScale(scaleX, scaleY);
                 carSprite.setRotation(90.f);
                 carSprite.setOrigin(0, 0);
-                // After rotation, position is (y, gridSize - x - 1)
                 carSprite.setPosition((v.getX() + 1) * cellSize, v.getY() * cellSize);
             }
 
@@ -97,7 +127,7 @@ void launchManualMode(Grille& g, sf::Texture& carTexture) {
             victoire = true;
             sf::Text message;
             message.setFont(font);
-            message.setString("🚗 La voiture rouge est sortie !");
+            message.setString("La voiture rouge est sortie !");
             message.setCharacterSize(32);
             message.setFillColor(sf::Color::Red);
             message.setStyle(sf::Text::Bold);
@@ -144,11 +174,10 @@ void animateSolution(Grille& g, const std::vector<std::string>& solution, sf::Te
             for (int x = 0; x < copieGrille.getLargeur(); ++x) {
                 sf::RectangleShape cell(sf::Vector2f(cellSize - 2, cellSize - 2));
                 cell.setPosition(x * cellSize, y * cellSize);
-                // Check if this cell is the sortie
                 if (x == g.getSortieX() && y == g.getSortieY()) {
-                    cell.setFillColor(sf::Color(230, 230, 230)); // Keep the default fill color
-                    cell.setOutlineThickness(3);                // Make the border thicker
-                    cell.setOutlineColor(sf::Color::Red);       // Set the border color to red
+                    cell.setFillColor(sf::Color(230, 230, 230));
+                    cell.setOutlineThickness(3);
+                    cell.setOutlineColor(sf::Color::Red);
                 } else {
                     cell.setFillColor(sf::Color(230, 230, 230));
                     cell.setOutlineThickness(1);
@@ -171,13 +200,11 @@ void animateSolution(Grille& g, const std::vector<std::string>& solution, sf::Te
                 carSprite.setScale(scaleX, scaleY);
                 carSprite.setPosition(v.getX() * cellSize, v.getY() * cellSize);
             } else {
-                // For vertical: stretch horizontally, then rotate
                 scaleX = v.getLongueur() * (float)cellSize / carTexture.getSize().x;
                 scaleY = (float)cellSize / carTexture.getSize().y;
                 carSprite.setScale(scaleX, scaleY);
                 carSprite.setRotation(90.f);
                 carSprite.setOrigin(0, 0);
-                // After rotation, position is (y, gridSize - x - 1)
                 carSprite.setPosition((v.getX() + 1) * cellSize, v.getY() * cellSize);
             }
 

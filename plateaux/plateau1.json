@@ -3,7 +3,7 @@
   "largeur": 7,
   "hauteur": 7,
   "voitures": [
-    {"id":"A", "couleur":"rvb(0,255,0)", "x":1, "y":1, "taille":3, "orientation":"verticale"},
+    {"id":"A", "couleur":"rvb(0,255,0)", "x":1, "y":1, "taille":4, "orientation":"verticale"},
     {"id":"B", "couleur":"rvb(0,0,255)", "x":4, "y":1, "taille":2, "orientation":"horizontale"},
     {"id":"C", "couleur":"rvb(255,128,0)", "x":6, "y":1, "taille":3, "orientation":"verticale"},
     {"id":"D", "couleur":"rvb(255,105,180)", "x":3, "y":4, "taille":2, "orientation":"horizontale"},
