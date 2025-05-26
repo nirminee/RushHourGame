@@ -1,0 +1,32 @@
+{
+  "nom": "Plateau4",
+  "largeur": 6,
+  "hauteur": 6,
+  "voitures": [
+    {"id":"A", "couleur":"rvb(0,255,0)", "x":1, "y":1, "taille":3, "orientation":"verticale"},
+    {"id":"B", "couleur":"rvb(0,0,255)", "x":4, "y":1, "taille":2, "orientation":"horizontale"},
+    {"id":"C", "couleur":"rvb(255,128,0)", "x":6, "y":2, "taille":3, "orientation":"verticale"},
+    {"id":"D", "couleur":"rvb(128,0,255)", "x":2, "y":6, "taille":2, "orientation":"horizontale"},
+    {"id":"E", "couleur":"rvb(255,255,0)", "x":5, "y":3, "taille":2, "orientation":"verticale"},
+    {"id":"F", "couleur":"rvb(128,128,128)", "x":3, "y":5, "taille":2, "orientation":"horizontale"}
+  ],
+  "voiture_dep": {
+    "id":"X",
+    "couleur":"rvb(255,0,0)",
+    "x":2,
+    "y":3,
+    "taille":2,
+    "orientation":"horizontale"
+  },
+  "sortie": {"x":6, "y":3}
+}
+
+
+
+
+
+
+
+
+
+

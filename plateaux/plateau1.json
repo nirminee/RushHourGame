@@ -1,0 +1,30 @@
+{
+  "nom": "Plateau1",
+  "largeur": 7,
+  "hauteur": 7,
+  "voitures": [
+    {"id":"A", "couleur":"rvb(0,255,0)", "x":1, "y":1, "taille":3, "orientation":"verticale"},
+    {"id":"B", "couleur":"rvb(0,0,255)", "x":4, "y":1, "taille":2, "orientation":"horizontale"},
+    {"id":"C", "couleur":"rvb(255,128,0)", "x":6, "y":1, "taille":3, "orientation":"verticale"},
+    {"id":"D", "couleur":"rvb(255,105,180)", "x":3, "y":4, "taille":2, "orientation":"horizontale"},
+    {"id":"E", "couleur":"rvb(139,69,19)", "x":2, "y":6, "taille":2, "orientation":"horizontale"},
+    {"id":"F", "couleur":"rvb(238,130,238)", "x":7, "y":3, "taille":2, "orientation":"verticale"},
+    {"id":"G", "couleur":"rvb(0,206,209)", "x":5, "y":5, "taille":2, "orientation":"horizontale"},
+    {"id":"H", "couleur":"rvb(128,0,128)", "x":2, "y":3, "taille":2, "orientation":"verticale"},
+    {"id":"I", "couleur":"rvb(255,215,0)", "x":5, "y":2, "taille":2, "orientation":"verticale"}
+  ],
+  "voiture_dep": {
+    "id":"X",
+    "couleur":"rvb(255,0,0)",
+    "x":3,
+    "y":3,
+    "taille":2,
+    "orientation":"horizontale"
+  },
+  "sortie": {"x":7, "y":3}
+}
+
+
+
+
+
