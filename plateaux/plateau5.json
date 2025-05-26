@@ -1,0 +1,109 @@
+{
+    "nom": "Plateau5",
+    "largeur": 9,
+    "hauteur": 7,
+    "voitures": [
+      {
+        "id": "A",
+        "couleur": "rvb(0,0,255)",
+        "taille": 2,
+        "orientation": "verticale",
+        "x": 1,
+        "y": 2
+      },
+      {
+        "id": "B",
+        "couleur": "rvb(255,255,0)",
+        "taille": 2,
+        "orientation": "horizontale",
+        "x": 2,
+        "y": 1
+      },
+      {
+        "id": "C",
+        "couleur": "rvb(0,255,0)",
+        "taille": 3,
+        "orientation": "verticale",
+        "x": 3,
+        "y": 3
+      },
+      {
+        "id": "D",
+        "couleur": "rvb(255,0,255)",
+        "taille": 2,
+        "orientation": "horizontale",
+        "x": 5,
+        "y": 2
+      },
+      {
+        "id": "E",
+        "couleur": "rvb(128,0,128)",
+        "taille": 2,
+        "orientation": "verticale",
+        "x": 6,
+        "y": 4
+      },
+      {
+        "id": "F",
+        "couleur": "rvb(0,255,255)",
+        "taille": 2,
+        "orientation": "horizontale",
+        "x": 4,
+        "y": 5
+      },
+      {
+        "id": "G",
+        "couleur": "rvb(255,165,0)",
+        "taille": 2,
+        "orientation": "verticale",
+        "x": 7,
+        "y": 3
+      },
+      {
+        "id": "H",
+        "couleur": "rvb(255,192,203)",
+        "taille": 2,
+        "orientation": "horizontale",
+        "x": 8,
+        "y": 6
+      },
+      {
+        "id": "I",
+        "couleur": "rvb(139,69,19)",
+        "taille": 2,
+        "orientation": "verticale",
+        "x": 9,
+        "y": 3
+      },
+      {
+        "id": "J",
+        "couleur": "rvb(128,128,128)",
+        "taille": 2,
+        "orientation": "horizontale",
+        "x": 1,
+        "y": 7
+      }
+    ],
+    "voiture_dep": {
+      "id": "X",
+      "couleur": "rvb(255,0,0)",
+      "taille": 2,
+      "orientation": "horizontale",
+      "x": 3,
+      "y": 4
+    },
+    "sortie": {
+      "x": 9,
+      "y": 4
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
