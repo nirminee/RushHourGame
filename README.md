@@ -1,6 +1,4 @@
-Bien sûr ! Voici un exemple de **README.md** professionnel pour ton projet Rush Hour en C++ avec SFML, gestion des couleurs RVB et affichage par sprites.
 
----
 
 # 🚗 Rush Hour – Jeu de réflexion en C++/SFML
 
